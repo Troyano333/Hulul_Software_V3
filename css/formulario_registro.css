@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D8D8D8;
+}
+
+form {
+    padding: 55px 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 4, 0.5);
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    background-color: #f7f6f4;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* NUEVAS CLASES PARA INPUTS DE 2 EN 2 */
+.input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.input-group-half {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+}
+
+.input-group-half input {
+    margin-bottom: 0px;
+}
+
+h2 {
+    color: black;
+    font-size: 40px;
+    text-transform: capitalize;
+    position: relative;
+    bottom: 20px;
+    font-weight: bold;
+    background: #515151;
+    border: 1PX solid #FFA725;
+    padding: 1PX;
+    margin: 10px;
+    font-size: 40px;
+}
+
+span {
+    color: #FFA725;
+}
+
+label {
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 14px 20px;
+    border-radius: 20px;
+    border: 0;
+    outline: none;
+    background-color: #e0e6e1;
+    margin-bottom: 20px;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-txt {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.form-txt a {
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.group-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_cuenta {
+    padding: 9px 15px;
+    font-size: 14px;
+    border: 0;
+    box-shadow: 0 0 20px rgba(41, 38, 38, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    border-radius: 40px;
+    background-color: #FFA725;
+    position: relative;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.btn_cuenta:hover {
+    background-color: chocolate;
+    color: white;
+    border-radius: 20px;
+}
+
+/* Animación de carga y éxito */
+.animation-container {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFA725;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 250px;
+}
+
+.loading {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #FFA725;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+.checkmark {
+    font-size: 30px;
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#successMessage {
+    font-size: 18px;
+    display: none;
+    animation: fadeIn 1s ease-in-out 1s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 40px 30px;
+        margin: 20px;
+    }
+    
+    .input-row {
+        flex-direction: column;
+        gap: 0px;
+    }
+    
+    .input-group-half {
+        width: 100%;
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin: 5px;
+        padding: 8px;
+    }
+    
+    input {
+        padding: 12px 15px;
+    }
+    
+    .btn_cuenta {
+        width: 100%;
+        padding: 12px 20px;
+        margin-bottom: 15px;
+    }
+    
+    .form-txt {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 95%;
+        padding: 30px 20px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .animation-container {
+        width: 90%;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realizar Reservas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/realizar_reservas.css">
+  </head>
+  <body>
+    <h1>realizar <span class="reser-h1">reservas</span></h1>
+
+    <section class="resrvas">
+      <div class="carousel-3d-container">
+        <div class="carousel-3d-scene">
+          <div class="carousel-3d-item">
+            <img src="./img_eventos/dj_dever.jfif" alt="Discoteca 1" />
+            <div class="carousel-3d-caption">
+              <h5>Ambiente Nocturno</h5>
+              <p>Vive la mejor experiencia en nuestra discoteca con DJ en vivo.</p>
+            </div>
+          </div>
+          <div class="carousel-3d-item">
+            <img src="./img/p_basic.jpg" alt="Discoteca 2" />
+            <div class="carousel-3d-caption">
+              <h5>Luces y Música</h5>
+              <p>Sistema de sonido profesional y efectos de luces espectaculares.</p>
+            </div>
+          </div>
+          <div class="carousel-3d-item">
+            <img src="./img/P_plata.png" alt="Discoteca 3" />
+            <div class="carousel-3d-caption">
+              <h5>VIP Experience</h5>
+              <p>Reserva tu palco VIP para una experiencia exclusiva.</p>
+            </div>
+          </div>
+          <div class="carousel-3d-item">
+            <img src="./img/p-basicos.jpg" alt="Discoteca 4" />
+            <div class="carousel-3d-caption">
+              <h5>Eventos Especiales</h5>
+              <p>Conciertos y eventos únicos cada fin de semana.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-formulario">
+        <form id="formReserva" action="./php/guardar_reserva.php" method="POST">
+          <div class="input-row">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" id="nombre" required placeholder="Nombre" />
+            </div>
+            <div>
+              <label for="apellido">Apellido</label>
+              <input type="text" name="apellido" id="apellido" required placeholder="Apellido" />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div>
+              <label for="email">Correo electrónico</label>
+              <input type="email" name="email" id="email" required placeholder="Correo electrónico" />
+            </div>
+            <div>
+              <label for="telefono">Teléfono</label>
+              <input type="tel" name="telefono" id="telefono" required placeholder="Teléfono" />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div>
+              <label for="eventoSeleccionado">Evento</label>
+              <input type="text" name="eventoSeleccionado" id="eventoSeleccionado" readonly placeholder="Nombre del evento" />
+            </div>
+            <div>
+              <label for="zonaSeleccionada">Tu selección (Palco o Mesa)</label>
+              <input type="text" name="zonaSeleccionada" id="zonaSeleccionada" readonly placeholder="Zona seleccionada" />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div>
+              <label for="fechaEvento">Fecha del evento</label>
+              <input type="text" name="fechaEvento" id="fechaEvento" readonly placeholder="Fecha del evento" />
+            </div>
+            <div>
+              <label for="horaEvento">Hora del evento</label>
+              <input type="text" name="horaEvento" id="horaEvento" readonly placeholder="Hora del evento" />
+            </div>
+          </div>
+
+          <div>
+            <label for="lugar">Lugar</label>
+            <select name="lugar" id="lugar" required>
+              <option value="">Selecciona un lugar</option>
+              <option value="El-Centro">El Centro</option>
+              <option value="Norte">Norte</option>
+              <option value="Sur">Sur</option>
+            </select>
+          </div>
+
+          <button type="submit">Reservar</button>
+        </form>
+      </div>
+    </section>
+
+    <script src="./js/formulario_reservas.js"></script>
+  </body>
+</html>

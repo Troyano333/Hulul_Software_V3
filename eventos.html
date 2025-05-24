@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eventos Disponibles</title>
+  <link rel="stylesheet" href="./css/eventos.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="hu"><span>Eventos</span> Disponibles</h1>
+
+    <form class="search-container" id="searchForm" onsubmit="return false;">
+      <select class="city" id="citySelect" aria-label="Seleccionar ciudad">
+        <option value="">Ciudad</option>
+        <option value="barranquilla">Barranquilla</option>
+        <option value="bogotá">Bogotá</option>
+        <option value="medellín">Medellín</option>
+        <option value="valledupar">Valledupar</option>
+      </select>
+
+      <select class="category" aria-label="Seleccionar categoría">
+        <option value="">Categoría</option>
+        <option value="concierto">Concierto</option>
+        <option value="festival">Festival</option>
+      </select>
+
+      <input
+        type="date"
+        class="date"
+        id="dateInput"
+        aria-label="Seleccionar fecha"
+      />
+
+      <input
+        class="search-input"
+        type="search"
+        id="searchInput"
+        placeholder="Buscar por artista, evento..."
+        aria-label="Buscar evento"
+      />
+
+      <button class="search-btn" id="searchButton" aria-label="Buscar">
+        🔍 Buscar
+      </button>
+    </form>
+
+    <ul class="event-list" id="event-list">
+      <!-- Primer Evento Visible -->
+      <li class="event-item" data-categoria="concierto" data-ciudad="barranquilla" data-fecha="25 de junio de 2025" data-fecha-iso="2025-06-25" data-hora="8:00 PM" data-lugar="Gran Salón Disco Caribe">
+        <img src="./img_eventos/silvestre.jfif" alt="Evento Silvestre" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Silvestre</h3>
+          <p class="event-description">
+            Vive una noche llena de ritmo y pasión con Silvestre Dangond interpretando sus grandes éxitos de la música vallenata.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 25 de junio de 2025<br />
+            <strong>Hora:</strong> 8:00 PM<br />
+            <strong>Lugar:</strong> Gran Salón Disco Caribe, Barranquilla<br />
+            <strong>Restricciones:</strong> Mayores de 18 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <!-- Segundo Evento Visible -->
+      <li class="event-item" data-categoria="concierto" data-ciudad="bogotá" data-fecha="10 de julio de 2025" data-fecha-iso="2025-07-10" data-hora="9:00 PM" data-lugar="Terraza Lounge">
+        <img src="./img_eventos/chawala.jfif" alt="Evento Chawala" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Chawala</h3>
+          <p class="event-description">
+            Disfruta de la mejor música urbana y hip hop con Chawala y sus invitados en un ambiente vibrante.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 10 de julio de 2025<br />
+            <strong>Hora:</strong> 9:00 PM<br />
+            <strong>Lugar:</strong> Terraza Lounge, Bogotá<br />
+            <strong>Restricciones:</strong> Mayores de 21 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <!-- Tercer Evento Visible -->
+      <li class="event-item" data-categoria="festival" data-ciudad="medellín" data-fecha="15 de agosto de 2025" data-fecha-iso="2025-08-15" data-hora="10:00 PM" data-lugar="Club Central">
+        <img src="./img_eventos/tremendo.jfif" alt="Evento Tremendo" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Tremendo</h3>
+          <p class="event-description">
+            Fiesta con la mejor selección de reguetón y música electrónica para una noche inolvidable.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 15 de agosto de 2025<br />
+            <strong>Hora:</strong> 10:00 PM<br />
+            <strong>Lugar:</strong> Club Central, Medellín<br />
+            <strong>Restricciones:</strong> Mayores de 18 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <!-- Eventos Ocultos -->
+      <li class="event-item oculto" data-categoria="concierto" data-ciudad="medellín" data-fecha="30 de agosto de 2025" data-fecha-iso="2025-08-30" data-hora="8:00 PM" data-lugar="Estadio Atanasio Girardot">
+        <img src="./img_eventos/maluma.webp" alt="Evento Maluma" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Maluma</h3>
+          <p class="event-description">
+            Maluma llega a su ciudad natal con un espectáculo lleno de reguetón, luces y emoción que no te puedes perder.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 30 de agosto de 2025<br />
+            <strong>Hora:</strong> 8:00 PM<br />
+            <strong>Lugar:</strong> Estadio Atanasio Girardot, Medellín<br />
+            <strong>Restricciones:</strong> Mayores de 16 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <li class="event-item oculto" data-categoria="concierto" data-ciudad="barranquilla" data-fecha="5 de septiembre de 2025" data-fecha-iso="2025-09-05" data-hora="9:00 PM" data-lugar="Estadio Metropolitano">
+        <img src="./img_eventos/shakira.jpg" alt="Evento Shakira" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Shakira</h3>
+          <p class="event-description">
+            Shakira regresa a Barranquilla con su gira internacional, lista para hacer vibrar a su público con sus mayores éxitos.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 5 de septiembre de 2025<br />
+            <strong>Hora:</strong> 9:00 PM<br />
+            <strong>Lugar:</strong> Estadio Metropolitano, Barranquilla<br />
+            <strong>Restricciones:</strong> Apto para todas las edades
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <li class="event-item oculto" data-categoria="festival" data-ciudad="valledupar" data-fecha="12 de septiembre de 2025" data-fecha-iso="2025-09-12" data-hora="10:00 PM" data-lugar="Parque de la Leyenda Vallenata">
+        <img src="./img_eventos/dj_dever.jfif" alt="Evento DJ Dever" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">DJ Dever</h3>
+          <p class="event-description">
+            Vive una noche explosiva con DJ Dever mezclando en vivo sus mejores beats electrónicos y urbanos en Valledupar.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 12 de septiembre de 2025<br />
+            <strong>Hora:</strong> 10:00 PM<br />
+            <strong>Lugar:</strong> Parque de la Leyenda Vallenata, Valledupar<br />
+            <strong>Restricciones:</strong> Mayores de 18 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+      <li class="event-item oculto" data-categoria="concierto" data-ciudad="bogotá" data-fecha="20 de septiembre de 2025" data-fecha-iso="2025-09-20" data-hora="8:30 PM" data-lugar="Movistar Arena">
+        <img src="./img_eventos/carlos_vives.jpg" alt="Evento Carlos Vives" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Carlos Vives</h3>
+          <p class="event-description">
+            Disfruta una velada mágica con Carlos Vives y su contagiosa mezcla de vallenato y pop colombiano en Bogotá.
+          </p>
+          <p class="event-info">
+            <strong>Fecha:</strong> 20 de septiembre de 2025<br />
+            <strong>Hora:</strong> 8:30 PM<br />
+            <strong>Lugar:</strong> Movistar Arena, Bogotá<br />
+            <strong>Restricciones:</strong> Mayores de 14 años
+          </p>
+          <a href="mapa.html" class="event-link" onclick="guardarEvento(event)">
+            Ver Palcos y Mesas
+          </a>
+        </div>
+      </li>
+
+    </ul>
+
+    <button id="verMasBtn">Ver más</button>
+
+    <div class="eventos-destacados">
+      <h2 class="S">Eventos Destacados</h2>
+      <p>Próximamente, los eventos destacados...</p>
+    </div>
+  </div>
+
+  <script>
+    // Función de guardar evento
+    function guardarEvento(event) {
+      event.preventDefault();
+      const eventItem = event.currentTarget.closest('.event-item');
+
+      // Extraer datos desde atributos data-*
+      const nombre = eventItem.querySelector('.event-title').textContent;
+      const lugar = eventItem.getAttribute('data-lugar');
+      const fecha = eventItem.getAttribute('data-fecha');
+      const hora = eventItem.getAttribute('data-hora');
+      const ciudad = eventItem.getAttribute('data-ciudad');
+      const categoria = eventItem.getAttribute('data-categoria');
+
+      // Guardar en localStorage para uso en mapa.html y formulario
+      localStorage.setItem('eventoSeleccionado', nombre);
+      localStorage.setItem('lugarEvento', lugar);
+      localStorage.setItem('fechaEvento', fecha);
+      localStorage.setItem('horaEvento', hora);
+      localStorage.setItem('ciudadEvento', ciudad);
+      localStorage.setItem('categoriaEvento', categoria);
+
+      // Redirigir a mapa.html
+      window.location.href = 'mapa.html';
+    }
+
+    // Función de filtro
+    function filterEvents() {
+      const searchValue = document.getElementById('searchInput').value.toLowerCase().trim();
+      const categoryValue = document.querySelector('select.category').value.toLowerCase();
+      const cityValue = document.querySelector('select.city').value.toLowerCase();
+      const dateValue = document.getElementById('dateInput').value;
+
+      const events = document.querySelectorAll('#event-list li.event-item');
+
+      events.forEach(event => {
+        const title = event.querySelector('.event-title').textContent.toLowerCase();
+        const description = event.querySelector('.event-description').textContent.toLowerCase();
+        const eventCategory = event.getAttribute('data-categoria').toLowerCase();
+        const eventCity = event.getAttribute('data-ciudad').toLowerCase();
+        const eventDateISO = event.getAttribute('data-fecha-iso');
+
+        const matchesSearch = !searchValue || title.includes(searchValue) || description.includes(searchValue);
+        const matchesCategory = !categoryValue || eventCategory === categoryValue;
+        const matchesCity = !cityValue || eventCity === cityValue;
+        const matchesDate = !dateValue || eventDateISO === dateValue;
+
+        event.style.display = (matchesSearch && matchesCategory && matchesCity && matchesDate) ? '' : 'none';
+      });
+    }
+
+    // Filtrado de eventos por búsqueda
+    document.getElementById('searchInput').addEventListener('input', filterEvents);
+    document.querySelector('select.category').addEventListener('change', filterEvents);
+    document.querySelector('select.city').addEventListener('change', filterEvents);
+    document.getElementById('dateInput').addEventListener('change', filterEvents);
+
+    // Evento de búsqueda al presionar el botón
+    document.getElementById('searchButton').addEventListener('click', e => {
+      e.preventDefault();
+      filterEvents();
+    });
+
+    // Evento de búsqueda al presionar "Enter"
+    document.getElementById('searchInput').addEventListener('keydown', e => {
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        filterEvents();
+      }
+    });
+
+    // Función para mostrar más eventos
+    document.getElementById('verMasBtn').addEventListener('click', () => {
+      const hiddenEvents = document.querySelectorAll('#event-list li.oculto');
+      hiddenEvents.forEach(event => {
+        event.style.display = '';
+        event.classList.remove('oculto');
+      });
+      document.getElementById('verMasBtn').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

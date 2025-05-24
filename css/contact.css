@@ -1,0 +1,154 @@
+body {
+    background-color: #FFF5E4;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/*contenedor de formulario*/
+.contact-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    width: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: 25px;
+}
+
+/*section de redes sociales*/
+.redes_sociales {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+
+    background-color: #f7eee6;
+    margin: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.box-redes {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 300px;
+    align-items: center;
+}
+
+/*contenedor de imagenes*/
+.img {
+    text-align: center;
+    position: relative;
+    top: 10px;
+
+}
+
+/*imagenes redes*/
+.redes_sociales img {
+    width: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+
+/*titulos de imagen*/
+.title {
+    font-family: sans-serif;
+    color: #FFA725;
+    background-color: #696767;
+    padding: 10px;
+    border: 1px solid #FFA725;
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+
+    transition: background-color 0.7s ease;
+
+}
+
+.title:hover {
+    color: black;
+    background-color: #dad3d3;
+    border: none;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #FFA725;
+    font-family: sans-serif;
+
+    font-weight: bold;
+    background: #515151;
+    border: 1PX solid #FFA725;
+    padding: 1PX;
+    margin: 10px;
+    font-size: 40px;
+}
+
+.contact-section ::placeholder {
+    font-family: sans-serif;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background-color: #696767;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+     color: white;
+}
+
+.contact-form button:hover {
+    background-color: #696767;
+   
+     color: #FFA725;
+}
+
+@media(max-width:991px){
+   .container{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+   }
+
+   .contact-section{
+    width: 80%;
+    margin-bottom: 35px;
+     
+   }
+
+   .redes_sociales{
+    width: 88%;
+     margin-bottom: 30px;
+   }
+   .redes_sociales img{
+    width: 80px;
+   }
+}

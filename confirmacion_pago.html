@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Confirmación de Pago</title>
+    <link rel="stylesheet" href="./css/confirmacion_pago.css" />  
+</head>
+<body>
+    <div class="confirmacion-container">
+        <h1>¡Pago Exitoso!</h1>
+
+        <div class="info-reserva">
+            <h2>Detalles de tu Reserva</h2>
+            <p><strong>Nombre:</strong> <span id="nombre_reserva"></span> <span id="apellido_reserva"></span></p>
+            <p><strong>Evento:</strong> <span id="evento_reserva"></span></p>
+            <p><strong>Fecha del Evento:</strong> <span id="fecha_reserva"></span></p>
+            <p><strong>Lugar:</strong> <span id="lugar_reserva"></span></p>
+            <p><strong>Zona Reservada:</strong> <span id="palco_reserva"></span></p>
+        </div>
+
+        <div class="qr-code">
+            <h2>Código QR</h2>
+            <img src="" alt="Código QR de la reserva" id="qr_imagen" />
+        </div>
+
+        <div class="info-discoteca">
+            <h2>Información de la Discoteca</h2>
+            <p><strong>Nombre:</strong> Hulul Discoteck</p>
+            <p><strong>Dirección:</strong> Calle Falsa 123, Cartagena</p>
+            <p><strong>Teléfono:</strong> (123) 456-7890</p>
+            <p><strong>¡Disfruta de tu evento!</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Función para obtener query params de la URL con corrección de '+' a espacio
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split("&").forEach(pair => {
+                let [key, value] = pair.split("=");
+                if (key) {
+                    value = value ? value.replace(/\+/g, ' ') : '';
+                    params[key] = decodeURIComponent(value);
+                }
+            });
+            return params;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const datos = getQueryParams();
+
+            if (!datos.nombre || !datos.apellido) {
+                alert("No se han encontrado datos completos de la reserva.");
+                window.location.href = 'index.html';  // Redirige si los datos están incompletos
+                return;
+            }
+
+            // Asignar datos a elementos
+            document.getElementById("nombre_reserva").textContent = datos.nombre || "No disponible";
+            document.getElementById("apellido_reserva").textContent = datos.apellido || "No disponible";
+            document.getElementById("evento_reserva").textContent = datos.evento || "No disponible";
+            document.getElementById("fecha_reserva").textContent = datos.fecha || "No disponible";
+            document.getElementById("lugar_reserva").textContent = datos.lugar || "No disponible";
+            document.getElementById("palco_reserva").textContent = datos.palco || "No disponible";
+
+            // Preparar texto para QR
+            const textoQR = `Reserva para: ${datos.nombre} ${datos.apellido}
+Evento: ${datos.evento || "No disponible"}
+Fecha del Evento: ${datos.fecha || "No disponible"}
+Lugar: ${datos.lugar || "No disponible"}
+Zona reservada: ${datos.palco || "No disponible"}`;
+
+            // Crear URL para código QR usando Google Charts API
+            const qrURL = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(textoQR)}`;
+
+            // Asignar URL al elemento img
+            document.getElementById("qr.png").src  =  qrURL;
+        });
+    </script>
+</body>
+</html>

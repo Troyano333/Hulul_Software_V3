@@ -1,0 +1,59 @@
+/* Estilos para las imágenes dentro de los Palcos */
+.palcos_img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .box_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box_img .im-mesas{
+    width: 426px;
+    height: 426px;
+  }
+  
+
+/* Título de las imágenes de los Palcos */
+h2 {
+    position: absolute;
+    top: 10px;
+    left: 28%;
+    background-color: white;
+    color: #fdfcfb;
+    font-weight: bold;
+    background: #515151;
+    border: 1PX solid #FFA725;
+    padding: 5PX;
+    margin: 05px;
+    font-size: 35px;
+    z-index: 10; /* Asegura que el texto esté sobre la imagen */
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 991px) {
+    .palcos_img {
+        flex-direction: column; /* Cambia la dirección de las imágenes para apilarse */
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box_img {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho en pantallas pequeñas */
+        padding: 10px;
+    }
+
+    .box_img img {
+        width: 100%; /* Asegura que las imágenes se ajusten correctamente */
+    }
+
+    h2 {
+        left: 33%;
+        top: 20px;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/formulario_registro.css">
+  <title>Registro</title>
+</head>
+<body>
+  <form method="POST" action="php/guardar_usuario.php" id="registroForm">
+
+  <h2><span class="S">Registro</span>  Hulul</h2>
+
+  <!-- Fila 1: Nombre y Cédula -->
+  <div class="input-row">
+    <div class="input-group-half">
+      <label for="nombre">Nombres Y Apellidos </label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+    </div>
+    <div class="input-group-half">
+      <label for="cedula">Cédula</label>
+      <input type="text" name="cedula" id="cedula" placeholder="Cédula" required>
+    </div>
+  </div>
+
+  <!-- Fila 2: Dirección y Celular -->
+  <div class="input-row">
+    <div class="input-group-half">
+      <label for="direccion">Dirección</label>
+      <input type="text" name="direccion" id="direccion" placeholder="Dirección" required>
+    </div>
+    <div class="input-group-half">
+      <label for="celular">Celular</label>
+      <input type="number" name="celular" id="celular" placeholder="Celular" required>
+    </div>
+  </div>
+
+  <!-- Fila 3: Correo y Contraseña -->
+  <div class="input-row">
+    <div class="input-group-half">
+      <label for="email">Correo electrónico</label>
+      <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
+    </div>
+    <div class="input-group-half">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
+    </div>
+  </div>
+
+  <div class="form-txt">
+    <a href="#">Política de Privacidad</a>
+    <a href="#">Términos y Condiciones</a>
+  </div>
+
+  <div class="btn-2-a">
+    <button type="submit" class="btn_cuenta" id="registerButton">Registrarse</button>
+  </div>
+
+  <!--  el botón de iniciar sesión -->
+  <div class="btn-2-a">
+    <a href="login.html" class="btn_cuenta">Ya Tengo Una Cuenta</a>
+  </div>
+
+  <!-- Contenedor de la animación -->
+  <div id="animationContainer" class="animation-container">
+    <div id="loading" class="loading"></div>
+    <div id="checkmark" class="checkmark">&#10003;</div> <!-- Checkmark -->
+    <p id="successMessage">¡Registro exitoso!</p>
+  </div>
+
+  </form>
+
+  <!-- <script src="./js/registrocargando.js"></script> -->
+</body>
+</html>

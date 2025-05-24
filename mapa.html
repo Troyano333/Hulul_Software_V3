@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo - Discoteca Hulul</title>
+    <link rel="stylesheet" href="./css/mapa.css">
+</head>
+<body>
+    <div class="container"> <!-- Contenedor para el texto y el mapa -->
+        <!-- Contenedor de texto a la izquierda -->
+        <div class="text-container">
+            <h1>¡Haz tu reserva en <span class="D">Discoteca Hulul!</span></h1>
+            <hr>
+            <br>
+            <p>
+                <span class="D-2">Para disfrutar</span> de una experiencia única en Discoteca Hulul, selecciona el Palco o Mesa de tu preferencia en el mapa interactivo. Haz clic en cualquier zona de la Mesa VIP, Mesa Plata, Mesa Bronce, Palco VIP, Palco Plata o Palco Bronce para obtener más información y realizar tu reserva.
+            </p>
+            <br>
+            <h1>¿Cómo hacerlo?</h1>
+            <p>
+                <span class="D-1"> Selecciona la zona:</span> Haz clic en la zona que deseas reservar, ya sea una mesa o un palco.
+                <br><br>
+                Consulta los detalles: Al seleccionar la zona, se abrirá una nueva página con todos los detalles sobre las opciones disponibles, como las comodidades, la capacidad y los precios.
+                <br><br>
+                Realiza tu reserva: Si todo está a tu gusto, simplemente haz clic en el botón de Reservar para asegurar tu lugar en la discoteca.
+            </p>
+
+            <div class="logo-discoteca">
+               <img src="./img/h.png" alt="" class="mover">
+           </div>
+        </div>
+
+        
+
+        <!-- Contenedor del mapa interactivo -->
+        <div class="map-container" style="position:relative;">
+            <h2 class="title_discoteca">mapa de discoteca</h2>
+            <hr>
+            <object data="./img/mapa (2).svg" type="image/svg+xml" class="map-image"></object>
+         <hr>
+            <!-- Zonas interactivas con enlaces y cursor pointer -->
+            <div class="zone" id="palco-vip" data-zone="Palco VIP" style="cursor:pointer;" onclick="seleccionarZona('Palco VIP')"></div>
+            <div class="zone" id="mesa-vip" data-zone="Mesa VIP" style="cursor:pointer;" onclick="seleccionarZona('Mesa VIP')"></div>
+            <div class="zone" id="palco-plata" data-zone="Palco Plata" style="cursor:pointer;" onclick="seleccionarZona('Palco Plata')"></div>
+            <div class="zone" id="mesa-plata" data-zone="Mesa Plata" style="cursor:pointer;" onclick="seleccionarZona('Mesa Plata')"></div>
+            <div class="zone" id="palco-bronce" data-zone="Palco Bronce" style="cursor:pointer;" onclick="seleccionarZona('Palco Bronce')"></div>
+            <div class="zone" id="mesa-bronce" data-zone="Mesa Bronce" style="cursor:pointer;" onclick="seleccionarZona('Mesa Bronce')"></div>
+            <h3 class="sub-title">Bienvenido a Nuestra Discoteca</h3>
+        </div>
+
+    </div>
+
+    <!-- Script para guardar zona seleccionada y redirigir -->
+    <script>
+        function seleccionarZona(zona) {
+            localStorage.setItem('zonaSeleccionada', zona);
+            window.location.href = 'formulario_reservas.html';
+        }
+    </script>
+
+    <script src="./js/mapa.js"></script>
+</body>
+</html>
