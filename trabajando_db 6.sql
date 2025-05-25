@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2025 a las 10:11:10
+-- Tiempo de generación: 25-05-2025 a las 06:41:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -47,6 +47,7 @@ CREATE TABLE `reservas` (
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `tipo_palco` varchar(50) NOT NULL,
+  `precio` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL,
   `hora_reserva` time NOT NULL,
@@ -60,8 +61,10 @@ CREATE TABLE `reservas` (
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id`, `nombre`, `apellido`, `tipo_palco`, `email`, `telefono`, `hora_reserva`, `lugar`, `evento`, `fecha_evento`, `fecha_reserva`) VALUES
-(13, 'tarjeta', 'de debito', 'Palco Plata', 'ELDIOSAPOL10@JDJDJD', '3109872782', '08:00:00', 'Gran Salón Disco Caribe', 'Silvestre', NULL, '0000-00-00');
+INSERT INTO `reservas` (`id`, `nombre`, `apellido`, `tipo_palco`, `precio`, `email`, `telefono`, `hora_reserva`, `lugar`, `evento`, `fecha_evento`, `fecha_reserva`) VALUES
+(43, 'tarjeta', 'de debito', 'Palco Bronce', '$850.000 COP', 'ELDIOSAPOL10@JDJDJD', '30101010101', '09:00:00', 'Terraza Lounge', 'Chawala', NULL, '0000-00-00'),
+(44, 'tarjeta', 'de debito', 'Palco Bronce', '$850.000 COP', 'ELDIOSAPOL10@JDJDJD', '30101010101', '09:00:00', 'Terraza Lounge', 'Chawala', NULL, '0000-00-00'),
+(45, 'tarjeta', 'de debito', 'Palco Bronce', '$850.000 COP', 'ELDIOSAPOL10@JDJDJD', '30101010101', '09:00:00', 'Terraza Lounge', 'Chawala', NULL, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -70,23 +73,22 @@ INSERT INTO `reservas` (`id`, `nombre`, `apellido`, `tipo_palco`, `email`, `tele
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `contrasena` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `celular` varchar(15) DEFAULT NULL,
-  `cedula` varchar(20) DEFAULT NULL,
-  `role` enum('usuario','admin') DEFAULT 'usuario',
-  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `celular` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contrasena` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasena`, `direccion`, `celular`, `cedula`, `role`, `fecha_registro`) VALUES
-(31, 'tarjeta de debito', 'humairakyw50@gnail.com', 'eldiosapolo1', '78 Christopher Street', '4040404004', '1010101010', 'usuario', '2025-05-21 05:36:38');
+INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `direccion`, `celular`, `email`, `contrasena`) VALUES
+(29, 'tarjeta de debito', '1010101010', '78 Christopher Street', '1010101010', 'josecaballerogonzalez49@gmail.com', 'mm'),
+(30, 'Mateo Alvarez', '1010101010', '78 Christopher Street', '1010101010', 'mateoalvarez421@gmail.com', 'mm');
 
 -- --------------------------------------------------------
 
@@ -127,8 +129,7 @@ ALTER TABLE `reservas`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios_temp`
@@ -150,13 +151,13 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_temp`

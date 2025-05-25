@@ -8,7 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/realizar_reservas.css">
+    <link rel="stylesheet" href="./css/realizar_reservas.css" />
   </head>
   <body>
     <h1>realizar <span class="reser-h1">reservas</span></h1>
@@ -82,6 +82,14 @@
             </div>
           </div>
 
+          <!-- NUEVO INPUT PARA PRECIO -->
+          <div class="input-row">
+            <div>
+              <label for="precioZona">Precio</label>
+              <input type="text" name="precioZona" id="precioZona" readonly placeholder="Precio" />
+            </div>
+          </div>
+
           <div class="input-row">
             <div>
               <label for="fechaEvento">Fecha del evento</label>
@@ -109,5 +117,34 @@
     </section>
 
     <script src="./js/formulario_reservas.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const evento = localStorage.getItem("eventoSeleccionado");
+        const fecha = localStorage.getItem("fechaEvento");
+        const hora = localStorage.getItem("horaEvento");
+        const zona = localStorage.getItem("zonaSeleccionada");
+        const lugar = localStorage.getItem("lugarEvento"); // Asegúrate que guardas este dato también
+
+        // Precios reales para Colombia (ajustados según las zonas)
+        const precios = {
+          "Palco VIP": "$1.800.000 COP",
+          "Palco Plata": "$1.200.000 COP",
+          "Palco Básico": "$850.000 COP",
+          "Mesa VIP": "$1.000.000 COP",
+          "Mesa Plata": "$700.000 COP",
+          "Mesa Básica": "$450.000 COP",
+        };
+
+        if (evento) document.getElementById("eventoSeleccionado").value = evento;
+        if (fecha) document.getElementById("fechaEvento").value = fecha;
+        if (hora) document.getElementById("horaEvento").value = hora;
+        if (zona) {
+          document.getElementById("zonaSeleccionada").value = zona;
+          document.getElementById("precioZona").value = precios[zona] || "No disponible";
+        }
+        if (lugar) document.getElementById("lugar").value = lugar;
+      });
+    </script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Confirmación de Pago</title>
-    <link rel="stylesheet" href="./css/confirmacion_pago.css" />  
+    <link rel="stylesheet" href="./css/confirmacion_pago.css" />
 </head>
 <body>
     <div class="confirmacion-container">
@@ -12,36 +12,39 @@
 
         <div class="info-reserva">
             <h2>Detalles de tu Reserva</h2>
-            <p><strong>Nombre:</strong> <span id="nombre_reserva"></span> <span id="apellido_reserva"></span></p>
+            <p><strong>Nombre:</strong> <span id="nombre_reserva"></span></p>
+            <p><strong>Apellido:</strong> <span id="apellido_reserva"></span></p>
             <p><strong>Evento:</strong> <span id="evento_reserva"></span></p>
             <p><strong>Fecha del Evento:</strong> <span id="fecha_reserva"></span></p>
+            <p><strong>Hora:</strong> <span id="hora_reserva"></span></p>
             <p><strong>Lugar:</strong> <span id="lugar_reserva"></span></p>
-            <p><strong>Zona Reservada:</strong> <span id="palco_reserva"></span></p>
+            <p><strong>Zona Reservada:</strong> <span id="zona_reserva"></span></p>
+            <p><strong>Precio:</strong> <span id="precio_reserva"></span></p>
         </div>
 
         <div class="qr-code">
             <h2>Código QR</h2>
-            <img src="" alt="Código QR de la reserva" id="qr_imagen" />
+            <img src="./img/qr.png" alt="Código QR de la reserva" id="qr_imagen" />
         </div>
 
         <div class="info-discoteca">
             <h2>Información de la Discoteca</h2>
-            <p><strong>Nombre:</strong> Hulul Discoteck</p>
-            <p><strong>Dirección:</strong> Calle Falsa 123, Cartagena</p>
-            <p><strong>Teléfono:</strong> (123) 456-7890</p>
+            <p><strong>Nombre:</strong> Hulul Discoteca</p>
+            <p><strong>Dirección:</strong> Calle 13 #39-03, Cartagena</p>
+            <p><strong>Teléfono:</strong> (320) 456-7890</p>
             <p><strong>¡Disfruta de tu evento!</strong></p>
+            <p><strong>¡Atención!:</strong> Con este código QR podrás reclamar tu reserva en la discoteca</p>
         </div>
     </div>
 
     <script>
-        // Función para obtener query params de la URL con corrección de '+' a espacio
+        // Función para obtener parámetros de URL
         function getQueryParams() {
             const params = {};
             window.location.search.substring(1).split("&").forEach(pair => {
                 let [key, value] = pair.split("=");
                 if (key) {
-                    value = value ? value.replace(/\+/g, ' ') : '';
-                    params[key] = decodeURIComponent(value);
+                    params[key] = decodeURIComponent(value.replace(/\+/g, " "));
                 }
             });
             return params;
@@ -50,32 +53,28 @@
         document.addEventListener("DOMContentLoaded", () => {
             const datos = getQueryParams();
 
-            if (!datos.nombre || !datos.apellido) {
-                alert("No se han encontrado datos completos de la reserva.");
-                window.location.href = 'index.html';  // Redirige si los datos están incompletos
-                return;
-            }
-
-            // Asignar datos a elementos
+            // Mostrar los datos
             document.getElementById("nombre_reserva").textContent = datos.nombre || "No disponible";
             document.getElementById("apellido_reserva").textContent = datos.apellido || "No disponible";
             document.getElementById("evento_reserva").textContent = datos.evento || "No disponible";
             document.getElementById("fecha_reserva").textContent = datos.fecha || "No disponible";
+            document.getElementById("hora_reserva").textContent = datos.hora || "No disponible";
             document.getElementById("lugar_reserva").textContent = datos.lugar || "No disponible";
-            document.getElementById("palco_reserva").textContent = datos.palco || "No disponible";
+            document.getElementById("zona_reserva").textContent = datos.zona || "No disponible";
+            document.getElementById("precio_reserva").textContent = datos.precio || "No disponible";
 
-            // Preparar texto para QR
-            const textoQR = `Reserva para: ${datos.nombre} ${datos.apellido}
-Evento: ${datos.evento || "No disponible"}
-Fecha del Evento: ${datos.fecha || "No disponible"}
-Lugar: ${datos.lugar || "No disponible"}
-Zona reservada: ${datos.palco || "No disponible"}`;
+            // Crear el texto para el QR
+            const textoQR = `Reserva para: ${datos.nombre || "No disponible"} ${datos.apellido || ""}\n` +
+                `Evento: ${datos.evento || "No disponible"}\n` +
+                `Fecha: ${datos.fecha || "No disponible"}\n` +
+                `Hora: ${datos.hora || "No disponible"}\n` +
+                `Lugar: ${datos.lugar || "No disponible"}\n` +
+                `Zona: ${datos.zona || "No disponible"}\n` +
+                `Precio: ${datos.precio || "No disponible"}`;
 
-            // Crear URL para código QR usando Google Charts API
+            // Generar URL del código QR con Google Charts API
             const qrURL = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(textoQR)}`;
-
-            // Asignar URL al elemento img
-            document.getElementById("qr.png").src  =  qrURL;
+            document.getElementById("qr_png").src = qrURL;
         });
     </script>
 </body>

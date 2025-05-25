@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $horaEvento = $_POST['horaEvento'] ?? '';
     $lugar = $_POST['lugar'] ?? '';
 
+    // Preparar los datos en un array asociativo
     $reserva = [
         'nombre' => $nombre,
         'apellido' => $apellido,
@@ -22,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'lugar' => $lugar
     ];
 
+    // Convertir el array a JSON y almacenarlo en sessionStorage
     $json = json_encode($reserva, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 
     echo "<script>
