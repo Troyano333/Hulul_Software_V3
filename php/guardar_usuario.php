@@ -1,4 +1,6 @@
 <?php
+session_start();  // Inicia la sesión para manejar el mensaje
+
 include_once 'conexion.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -21,7 +23,10 @@ $result_check = $conexion->query($sql_check);
 
 if ($result_check->num_rows > 0) {
     // El correo ya está registrado
-    echo "El correo electrónico ya está registrado. Por favor, utiliza otro correo.";
+    $_SESSION['mensaje_error'] = "El correo electrónico ya está registrado. Por favor, utiliza otro correo.";
+    // Redirigir a la misma página para mostrar el mensaje
+    header("Location: ../formulario_registro.html");
+    exit(); 
 } else {
     // Insertar los datos en la base de datos si el correo no está registrado
     $sql = "INSERT INTO usuarios (nombre, cedula, direccion, celular, email, contrasena) 
@@ -46,6 +51,8 @@ if ($result_check->num_rows > 0) {
             $mail->setFrom('eldiosapolo10@gmail.com', 'Hulul Software');
             $mail->addAddress($correo, $nombre);
             $mail->Subject = '¡Bienvenido a Hulul Software!';
+
+            // Crear el cuerpo del mensaje
             $mail->Body = "
             <html>
             <head>
@@ -97,7 +104,8 @@ if ($result_check->num_rows > 0) {
             <body>
                 <div class='container'>
                     <div class='header'>
-                        <img src='cid:h_image' alt='Hulul Software Logo' /> <!-- Imagen incrustada -->
+                        <!-- Incrustar la imagen como CID -->
+                        <img src='cid:h_image' alt='Hulul Software Logo' />
                         <h1>¡Bienvenido a Hulul Software, $nombre!</h1>
                     </div>
                     <div class='content'>
@@ -121,11 +129,14 @@ if ($result_check->num_rows > 0) {
             </body>
             </html>
             ";
+
             $mail->isHTML(true);
 
-            // Asegúrate de que la ruta de la imagen esté correcta
-            $mail->addEmbeddedImage('C:/xampp/htdocs/hulul_software_v2/img/h.png', 'h_image'); // Ruta absoluta
+            // Ruta a la imagen incrustada en el correo
+            // Cambia la ruta de la imagen por la correcta en tu sistema
+            $mail->addEmbeddedImage('C:/xampp/htdocs/hulul_software_v2/img/h.png', 'h_image');
 
+            // Enviar el correo
             $mail->send();
             echo " Correo enviado.";
             $correoEnviado = true; // Si el correo fue enviado correctamente
