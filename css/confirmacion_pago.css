@@ -6,46 +6,60 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 10px; /* Ajustar el espacio alrededor del contenido */
 }
-
 
 .confirmacion-container {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
     padding: 20px;
     width: 80%;
     max-width: 600px;
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave */
 }
 
+/* Efecto de hover en el contenedor */
+.confirmacion-container:hover {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Aumentar la sombra al hacer hover */
+}
 
 h1 {
     text-align: center;
     color: #007BFF;
+    font-size: 32px; /* Ajustar tamaño de fuente */
+    margin-bottom: 20px;
 }
-
 
 .info-reserva, .qr-code, .info-discoteca {
     margin-top: 20px;
     padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave en hover */
 }
 
+.info-reserva:hover, .qr-code:hover, .info-discoteca:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave al hacer hover */
+}
 
+/* Títulos dentro de los bloques */
 .info-reserva h2, .qr-code h2, .info-discoteca h2 {
     color: #333;
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-
-.info-reserva p {
+/* Párrafos dentro de los bloques */
+.info-reserva p, .info-discoteca p {
     margin: 5px 0;
+    font-size: 16px;
 }
 
-
+/* Estilo para el código QR */
 #qr_imagen {
     display: block;
     margin: 10px auto;
@@ -53,19 +67,33 @@ h1 {
     max-height: 200px;
 }
 
-
-.info-discoteca p {
-    margin: 5px 0;
-}
-
-
-/* Estilos adicionales para mejorar la apariencia */
+/* Estilos adicionales para la animación de entrada */
 .confirmacion-container {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-
+/* Animación de fadeIn */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .confirmacion-container {
+        width: 90%; /* Reducir el ancho en pantallas pequeñas */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px; /* Reducir el tamaño del título en pantallas pequeñas */
+    }
+
+    .info-reserva, .qr-code, .info-discoteca {
+        padding: 12px; /* Reducir el padding */
+    }
+
+    #qr_imagen {
+        max-width: 150px; /* Ajustar tamaño del QR en dispositivos pequeños */
+    }
 }
