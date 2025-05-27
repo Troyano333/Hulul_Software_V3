@@ -148,9 +148,6 @@ h1 {
 .zone:hover::after {
     opacity: 1;
 }
-
-
-
 /* PALCOS Y MESAS OCUPADOS */
 .zonerojo {
     position: absolute;
@@ -222,8 +219,8 @@ h1 {
 /* mesas  */
 
 
-#mesavip-rojo { top: 36%; left: 79%; }
-#mesaplata-rojo { top: 41%; left: 79%; }
+#mesavip-rojo { top: 35%; left: 79%; }
+#mesaplata-rojo { top: 40%; left: 79%; }
 /* MESAS PUNTO VERDE*/
 #mesa-vip { top: 21%; left: 75%; }
 #mesa-plata { top: 24%; left: 78%; }
@@ -232,7 +229,6 @@ h1 {
 @media(width:300px){
     #palco-vip { top: 100%; left: 25%;  }
 }
-
 
 
 /* Animación */
@@ -301,10 +297,17 @@ h1 {
         height: 10px;
     }
 
-    #palco-vip { top: 20%; left: 25%; }
-    #palco-plata { top: 50%; left: 25%; }
-    #palco-bronce { top: 50%; left: 55%; }
-    #mesa-vip { top: 16%; left: 18%; }
-    #mesa-plata { top: 18%; left: 30%; }
-    #mesa-bronce { top: 20%; left: 52%; }
+    #palco-vip { top: 51%; left: 25%; }
+    #palco-plata { top: 58%; left: 21%; }
+    #palco-bronce { top: 70%; left: 21%; }
+    #mesa-vip { top: 50%; left: 75%; }
+    #mesa-plata { top: 56%; left: 79%; }
+    #mesa-bronce { top: 67%; left: 79%; }
+
+    /* PALCOS Y MESAS OCUPADOS */
+    #vip-rojo { top: 81%; left: 21%; }
+    #plata-rojo { top: 92%; left: 22%; }
+
+     #mesavip-rojo { top: 78%; left: 78%; }
+     #mesaplata-rojo { top: 89%; left: 78%;
 }
