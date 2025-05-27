@@ -120,6 +120,7 @@ h1 {
     height: 14px;
 }
 
+
 /* Hover */
 .zone:hover {
     background-color: rgb(0, 255, 85);
@@ -148,6 +149,51 @@ h1 {
     opacity: 1;
 }
 
+
+
+/* PALCOS Y MESAS OCUPADOS */
+.zonerojo {
+    position: absolute;
+    background-color: rgba(248, 13, 13, 0.8);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(10px, 1vw, 13px);
+    border-radius: 50%;
+    user-select: none;
+    width: 14px;
+    height: 14px;
+}
+
+.zonerojo:hover {
+    background-color: rgb(255, 1, 1);
+}
+
+
+.zonerojo::after {
+    position: absolute;
+    top: -30px;
+    left: 25px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 4px white;
+}
+
+.zonerojo:hover::after {
+    opacity: 1;
+}
+
 /* Nombres tooltip */
 #palco-vip::after { content: "Palco VIP"; }
 #palco-plata::after { content: "Palco Plata"; }
@@ -155,7 +201,10 @@ h1 {
 #mesa-vip::after { content: "Mesa VIP"; }
 #mesa-plata::after { content: "Mesa Plata"; }
 #mesa-bronce::after { content: "Mesa Bronce"; }
-
+#vip-rojo::after { content: "Palco Diamante (Ocupado)"; }
+#plata-rojo::after { content: "Palco Gold (Ocupado)"; }
+#mesavip-rojo::after { content: "Mesa Diamante (Ocupado)"; }
+#mesaplata-rojo::after { content: "Mesa Gold  (Ocupado)"; }
 
 
 
@@ -164,6 +213,17 @@ h1 {
 #palco-plata { top: 26%; left: 21%; }
 #palco-bronce { top: 31%; left: 21%; }
 
+
+/* punto rojo */
+#vip-rojo { top: 37%; left: 21%; }
+#plata-rojo { top: 42%; left: 23%; }
+
+
+/* mesas  */
+
+
+#mesavip-rojo { top: 36%; left: 79%; }
+#mesaplata-rojo { top: 41%; left: 79%; }
 /* MESAS PUNTO VERDE*/
 #mesa-vip { top: 21%; left: 75%; }
 #mesa-plata { top: 24%; left: 78%; }
