@@ -25,6 +25,14 @@ span {
   padding: 4px;
 }
 
+/* padin imagen */
+.padin-imagen{
+ position: relative;
+ top: 35px;
+}
+
+  
+
 /* Table Styles */
 table {
   width: 100%;
