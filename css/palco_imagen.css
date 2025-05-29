@@ -15,8 +15,10 @@
 }
 
 .box_img .im-mesas {
-    width: 426px;
-    height: 426px;
+    width: 400px; /* Reducimos un poco el tamaño de la imagen */
+    height: 400px; /* Reducimos un poco la altura */
+    border: 4px solid #FFA725; /* Borde dorado alrededor de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Agrega una transición suave para el efecto */
 }
 

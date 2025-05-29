@@ -21,9 +21,12 @@
             </div>
             <button type="submit" class="btn btn-warning w-100" id="loginButton">Iniciar sesión</button>
         </form>
-        
-       
-        
+
+        <!-- Botón Administrador -->
+        <div class="mb-3">
+            <button class="btn btn-warning w-100" id="adminButton">Administrador</button>
+        </div>
+
         <div class="text-center mt-3">
             <a href="formulario_registro.html">¿No tienes cuenta? Regístrate aquí</a>
         </div>
@@ -37,5 +40,13 @@
     </div>
 
     <script src="./js/logincargando.js"></script>
+
+    
+    <script>
+        document.getElementById("adminButton").addEventListener("click", function() {
+            // Redirigir a la página de administración
+            window.location.href = "./hulul-admin/login.html"; // Cambia este enlace por el que desees
+        });
+    </script>
 </body>
 </html>
