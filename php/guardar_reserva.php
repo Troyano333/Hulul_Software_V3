@@ -1,11 +1,6 @@
 <?php
-date_default_timezone_set("America/Bogota");
-
-// Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "trabajando_db");
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
-}
+// Incluir la conexión a la base de datos
+include('conexion.php'); // Asegúrate de que el path del include sea correcto
 
 // Verificar datos obligatorios
 $campos_requeridos = ['nombre', 'apellido', 'email', 'telefono', 'eventoSeleccionado', 'fechaEvento', 'horaEvento', 'lugar', 'zonaSeleccionada', 'precioZona'];
