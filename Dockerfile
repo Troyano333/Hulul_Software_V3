@@ -1,0 +1,11 @@
+# Usa una imagen base de PHP
+FROM php:7.4-apache
+
+# Habilita mod_rewrite para .htaccess
+RUN a2enmod rewrite
+
+# Copia los archivos del proyecto a la imagen de Docker
+COPY . /var/www/html/
+
+# Exponer el puerto 80
+EXPOSE 80
