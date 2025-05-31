@@ -17,14 +17,14 @@
 .box_img .im-mesas {
     width: 400px; /* Reducimos un poco el tamaño de la imagen */
     height: 400px; /* Reducimos un poco la altura */
-    border: 4px solid #FFA725; /* Borde dorado alrededor de la imagen */
+    border: 3px solid #FFA725; /* Borde dorado alrededor de la imagen */
     border-radius: 10px; /* Bordes redondeados */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Agrega una transición suave para el efecto */
+    transition: transform 0.2s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Agrega una transición suave para el efecto */
 }
 
 /* Efecto hover en las imágenes */
 .box_img:hover .im-mesas {
-    transform: scale(1.05) translateY(-5px); /* Aumenta ligeramente el tamaño y mueve la imagen hacia arriba */
+    transform: scale(1.00) translateY(-5px); /* Aumenta ligeramente el tamaño y mueve la imagen hacia arriba */
     box-shadow: 0 0 15px rgba(255, 167, 37, 0.7); /* Agrega una sombra para resaltar la imagen */
     filter: brightness(1.2); /* Aumenta el brillo de la imagen */
 }

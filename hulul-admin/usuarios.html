@@ -1,64 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HULUL - Usuarios Registrados</title>
-    <link href="./css/usuarios.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="./css/usuarios.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
 </head>
 <body>
     <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-header">
             <a href="index.html" class="sidebar-brand">
-                <i class="fas fa-crown"></i>
-                HULUL
+                <i class="fas fa-crown"></i> HULUL
             </a>
         </div>
         <ul class="sidebar-nav nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="index.html" onclick="showSection('dashboard')">
-                    <i class="fas fa-tachometer-alt"></i>
-                    Dashboard
+                <a class="nav-link" href="index.html" onclick="showSection('dashboard')">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="reservas.html" onclick="showSection('reservas')">
-                    <i class="fas fa-calendar-check"></i>
-                    Gestión de Reservas
+                    <i class="fas fa-calendar-check"></i> Gestión de Reservas
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="palcos_mesas.html" onclick="showSection('inventario')">
-                    <i class="fas fa-warehouse"></i>
-                    Palcos y Mesas
+                    <i class="fas fa-warehouse"></i> Palcos y Mesas
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="eventos.html" onclick="showSection('eventos')">
-                    <i class="fas fa-star"></i>
-                    Eventos 
+                    <i class="fas fa-star"></i> Eventos
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="usuarios.html" onclick="showSection('usuarios')">
-                    <i class="fas fa-users"></i>
-                    Usuarios Registrados
+                <a class="nav-link active" href="usuarios.html" onclick="showSection('usuarios')">
+                    <i class="fas fa-users"></i> Usuarios Registrados
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="reportes.html" onclick="showSection('reportes')">
-                    <i class="fas fa-chart-line"></i>
-                    Reportes Financieros
+                    <i class="fas fa-chart-line"></i> Reportes Financieros
                 </a>
             </li>
         </ul>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content p-4">
         <div id="usuarios" class="section active">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="chart-title">Usuarios Registrados</h2>
@@ -67,8 +60,8 @@
             <!-- Tabla de Usuarios -->
             <div class="table-container">
                 <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table table-hover table-striped align-middle">
+                        <thead class="table-light">
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -81,56 +74,7 @@
                             </tr>
                         </thead>
                         <tbody id="usuariosTable">
-                            <tr data-id="1">
-                                <td>1</td>
-                                <td>Juan</td>
-                                <td>Pérez</td>
-                                <td>12345678</td>
-                                <td>+57 300 1234567</td>
-                                <td>Calle 123, Bogotá</td>
-                                <td>juan.perez@email.com</td>
-                                <td><button class="btn btn-danger" onclick="borrarUsuario(1)">Borrar</button></td>
-                            </tr>
-                            <tr data-id="2">
-                                <td>2</td>
-                                <td>Ana</td>
-                                <td>Gómez</td>
-                                <td>87654321</td>
-                                <td>+57 310 7654321</td>
-                                <td>Avenida 45, Medellín</td>
-                                <td>ana.gomez@email.com</td>
-                                <td><button class="btn btn-danger" onclick="borrarUsuario(2)">Borrar</button></td>
-                            </tr>
-                            <tr data-id="3">
-                                <td>3</td>
-                                <td>Carlos</td>
-                                <td>Rodríguez</td>
-                                <td>11223344</td>
-                                <td>+57 320 1122334</td>
-                                <td>Calle 45, Cali</td>
-                                <td>carlos.rodriguez@email.com</td>
-                                <td><button class="btn btn-danger" onclick="borrarUsuario(3)">Borrar</button></td>
-                            </tr>
-                            <tr data-id="4">
-                                <td>4</td>
-                                <td>Lucía</td>
-                                <td>Martínez</td>
-                                <td>22334455</td>
-                                <td>+57 310 2233445</td>
-                                <td>Avenida 3, Barranquilla</td>
-                                <td>lucia.martinez@email.com</td>
-                                <td><button class="btn btn-danger" onclick="borrarUsuario(4)">Borrar</button></td>
-                            </tr>
-                            <tr data-id="5">
-                                <td>5</td>
-                                <td>Pedro</td>
-                                <td>Sánchez</td>
-                                <td>55667788</td>
-                                <td>+57 300 5566778</td>
-                                <td>Calle 15, Bucaramanga</td>
-                                <td>pedro.sanchez@email.com</td>
-                                <td><button class="btn btn-danger" onclick="borrarUsuario(5)">Borrar</button></td>
-                            </tr>
+                            <!-- Los usuarios se cargarán dinámicamente aquí -->
                         </tbody>
                     </table>
                 </div>
@@ -138,9 +82,70 @@
         </div>
     </main>
 
-    <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="./js/usuarios.js"></script>
+    <script>
+        async function cargarUsuarios() {
+            try {
+                const response = await fetch('php/usuarios.php');
+                if (!response.ok) throw new Error('Error en la petición');
+                const data = await response.json();
+
+                const tableBody = document.getElementById('usuariosTable');
+                tableBody.innerHTML = '';
+
+                data.forEach(usuario => {
+                    const fullName = usuario.nombre || '';
+                    const parts = fullName.trim().split(' ');
+                    const firstName = parts.shift() || '';
+                    const lastName = parts.join(' ') || '';
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${usuario.id}</td>
+                        <td>${firstName}</td>
+                        <td>${lastName}</td>
+                        <td>${usuario.cedula}</td>
+                        <td>${usuario.celular}</td>
+                        <td>${usuario.direccion}</td>
+                        <td>${usuario.email}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="borrarUsuario(${usuario.id})">
+                                <i class="fas fa-trash-alt"></i> Borrar
+                            </button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error al cargar usuarios:', error);
+            }
+        }
+
+        async function borrarUsuario(id) {
+            if (!confirm('¿Estás seguro de eliminar este usuario?')) return;
+
+            try {
+                const response = await fetch('php/usuarios.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ action: 'delete', id: id })
+                });
+                if (!response.ok) throw new Error('Error en la petición');
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    alert('Usuario eliminado exitosamente');
+                    cargarUsuarios();
+                } else {
+                    alert('Error al eliminar usuario');
+                }
+            } catch (error) {
+                console.error('Error al eliminar usuario:', error);
+                alert('Hubo un problema con la eliminación del usuario');
+            }
+        }
+
+        cargarUsuarios();
+    </script>
 </body>
 </html>

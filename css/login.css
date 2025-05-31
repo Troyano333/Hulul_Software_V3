@@ -36,10 +36,10 @@ h2 {
     transition: background-color 0.3s ease; /* Transición suave */
 }
 
-h2:hover {
-    background-color: #FFA725; /* Cambio de color al hacer hover */
+/* h2:hover {
+    background-color: #FFA725; 
     color: white;
-}
+} */
 
 /* Color del span */
 span {
@@ -89,14 +89,10 @@ input:focus {
     border-radius: 40px;
     background-color: #FFA725;
     width: 100%;
+    margin-bottom: 13px;
 }
 
-.btn-warning:hover {
-    background-color: chocolate;
-    color: white;
-    border-radius: 20px;
-    transform: scale(1.05); /* Efecto de escala suave */
-}
+
 
 /* Animación de carga y éxito */
 .animation-container {
