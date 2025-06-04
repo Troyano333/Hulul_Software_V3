@@ -1,0 +1,182 @@
+/* Estilos Adicionales y Mejoras */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Fondo general suave y consistente */
+    padding-bottom: 3rem;
+}
+
+.products-header {
+    background: linear-gradient(135deg, #FFA725 0%, #3c3c3c 100%);
+    color: #FFA725;
+    padding: 3rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.products-header h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.products-header h1 .bi {
+    font-size: 2.6rem;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+}
+
+.products-header p.lead {
+    font-size: 1.15rem;
+    color: #e0e0e0;
+    margin-bottom: 0;
+}
+
+/* Título de la cadena de licores */
+.titulo-cadena-licores {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor para la sección del carrusel para destacarlo */
+.carousel-showcase-container {
+    background-color: #ffffff; /* Fondo blanco para destacar el carrusel */
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05); /* Sombra más sutil */
+    margin-bottom: 2.5rem;
+}
+
+#productsCarousel .carousel-item img {
+    max-height: 400px; /* Limitar la altura máxima para mantener la proporción */
+    width: 100%; /* Hacer que la imagen ocupe todo el ancho disponible */
+    object-fit: contain; /* Mantener la imagen en su proporción original sin recortes */
+    border-radius: 0.75rem; /* Bordes redondeados para las imágenes */
+}
+
+/* Estilos para los controles del carrusel */
+#productsCarousel .carousel-control-prev-icon,
+#productsCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para los iconos */
+    border-radius: 50%;
+    padding: 0.5rem; /* Un poco de padding alrededor del icono */
+}
+
+/* Estilos para la categoría de productos */
+.product-category {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.07);
+    margin-bottom: 2.5rem;
+}
+
+.product-category h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #FFA725;
+    border-bottom: 2px solid #ffe0b3;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.product-category h2 .bi {
+    margin-right: 0.5rem;
+}
+
+/* Estilos para la lista de productos */
+.product-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-list li {
+    padding: 0.75rem 0.25rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1rem;
+    color: #515151;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.product-list li:last-child {
+    border-bottom: none;
+}
+
+.product-list li:hover {
+    background-color: #fff9f0;
+}
+
+.product-list li .bi {
+    color: #FFA725;
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+}
+
+/* Estilo de conclusión */
+.conclusion-text {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff5e4;
+    border-radius: 0.5rem;
+}
+
+.conclusion-text h4 {
+    font-weight: bold;
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.conclusion-text p {
+    color: #515151;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botón personalizado */
+.btn-back-custom {
+    display: inline-block;
+    font-weight: 700;
+    color: black;
+    background-color: #FFA725;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #e68900;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 167, 37, 0.3);
+}
+
+.btn-back-custom:hover,
+.btn-back-custom:focus {
+    color: white;
+    background-color: gold;
+    border-color: #e6b800;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 7px 18px rgba(218, 165, 32, 0.45);
+}
+
+.btn-back-custom .bi {
+    margin-right: 0.6rem;
+    font-size: 1.1rem;
+    vertical-align: -0.15em;
+}
