@@ -9,11 +9,18 @@
         xintegrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/realizar_reservas.css" />
-    <link rel="icon" href="./img/h.png" type="image/png" />
-
+    <link rel="stylesheet" href="./css/paypal.css">
+    <link rel="icon" href="./img/h.png" type="image/png" />      
 </head>
 
 <body>
+    <!-- CONTENEDOR PARA TOASTS (Notificaciones) -->
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div id="toastPlacement" class="toast-container position-fixed top-0 end-0 p-3 pt-5"> 
+            <!-- Los toasts se añadirán aquí por JavaScript -->
+        </div>
+    </div>
+
     <div class="reservas-page-header">
         <div class="container">
             <h1><i class="bi bi-calendar2-heart-fill"></i> Realiza tu Reserva</h1>
@@ -21,9 +28,11 @@
         </div>
     </div>
     <div class="container reservas-section-wrapper">
-        <div class="row align-items-center"> <div class="col-lg-5 col-md-12 mb-4 mb-lg-0">
-                <div class="carousel-showcase">
-                    <div class="carousel-3d-container"> <div class="carousel-3d-scene">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12 mb-4 mb-lg-0">
+                 <div class="carousel-showcase"> 
+                    <div class="carousel-3d-container">
+                        <div class="carousel-3d-scene">
                             <div class="carousel-3d-item">
                                 <img src="./img_eventos/dj_dever.jfif" alt="[Imagen de Ambiente Discoteca Hulul 1]" />
                                 <div class="carousel-3d-caption">
@@ -32,21 +41,21 @@
                                 </div>
                             </div>
                             <div class="carousel-3d-item">
-                                <img src="./img/p_basic.jpg" alt="[Imagen de Luces y Sonido Hulul]" />
+                                <img src="./img/palco_vip.jpg" alt="[Imagen de Luces y Sonido Hulul]" />
                                 <div class="carousel-3d-caption">
                                     <h5>Luces y Música</h5>
                                     <p>Sonido profesional y efectos espectaculares.</p>
                                 </div>
                             </div>
                             <div class="carousel-3d-item">
-                                <img src="./img/P_plata.png" alt="[Imagen de Zona VIP Exclusiva Hulul]" />
+                                <img src="./img/palco_plata.jpg" alt="[Imagen de Zona VIP Exclusiva Hulul]" />
                                 <div class="carousel-3d-caption">
                                     <h5>Experiencia VIP</h5>
                                     <p>Reserva tu palco VIP para un trato exclusivo.</p>
                                 </div>
                             </div>
                             <div class="carousel-3d-item">
-                                <img src="./img/p-basicos.jpg" alt="[Imagen de Eventos Especiales en Hulul]" />
+                                <img src="./img/palco_basico.jpg" alt="[Imagen de Eventos Especiales en Hulul]" />
                                 <div class="carousel-3d-caption">
                                     <h5>Eventos Únicos</h5>
                                     <p>Conciertos y fiestas temáticas cada semana.</p>
@@ -56,43 +65,49 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-7 col-md-12">
                 <div class="form-reservas-container">
                     <h1 class="form-title-animated">Realizar <span class="reser-h1">Reservas</span></h1>
-                    <form id="formReserva" action="./php/guardar_reserva.php" method="POST">
+                    <form id="formReserva">
                         <div class="input-row">
                             <div>
                                 <label for="nombre" class="form-label">Nombre(s)</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" required placeholder="Ingresa tu nombre" />
+                                <input type="text" class="form-control" name="nombre" id="nombre" required
+                                    placeholder="Ingresa tu nombre" />
                             </div>
                             <div>
                                 <label for="apellido" class="form-label">Apellido(s)</label>
-                                <input type="text" class="form-control" name="apellido" id="apellido" required placeholder="Ingresa tu apellido" />
+                                <input type="text" class="form-control" name="apellido" id="apellido" required
+                                    placeholder="Ingresa tu apellido" />
                             </div>
                         </div>
 
                         <div class="input-row">
                             <div>
                                 <label for="email" class="form-label">Correo Electrónico</label>
-                                <input type="email" class="form-control" name="email" id="email" required placeholder="tu.correo@example.com" />
+                                <input type="email" class="form-control" name="email" id="email" required
+                                    placeholder="tu.correo@example.com" />
                             </div>
                             <div>
                                 <label for="telefono" class="form-label">Teléfono de Contacto</label>
-                                <input type="tel" class="form-control" name="telefono" id="telefono" required placeholder="Ej: 3001234567" />
+                                <input type="tel" class="form-control" name="telefono" id="telefono" required
+                                    placeholder="Ej: 3001234567" />
                             </div>
                         </div>
 
                         <div class="input-row">
-                            <div class="full-width-field"> <label for="eventoSeleccionado" class="form-label">Evento Seleccionado</label>
-                                <input type="text" class="form-control" name="eventoSeleccionado" id="eventoSeleccionado" readonly />
+                            <div class="full-width-field"> <label for="eventoSeleccionado" class="form-label">Evento
+                                    Seleccionado</label>
+                                <input type="text" class="form-control" name="eventoSeleccionado"
+                                    id="eventoSeleccionado" readonly />
                             </div>
                         </div>
-                        
+
                         <div class="input-row">
                             <div>
                                 <label for="zonaSeleccionada" class="form-label">Zona Elegida (Palco o Mesa)</label>
-                                <input type="text" class="form-control" name="zonaSeleccionada" id="zonaSeleccionada" readonly />
+                                <input type="text" class="form-control" name="zonaSeleccionada" id="zonaSeleccionada"
+                                    readonly />
                             </div>
                             <div>
                                 <label for="precioZona" class="form-label">Precio de la Zona</label>
@@ -110,7 +125,7 @@
                                 <input type="text" class="form-control" name="horaEvento" id="horaEvento" readonly />
                             </div>
                         </div>
-                        
+
                         <div class="input-row">
                             <div class="full-width-field">
                                 <label for="lugar" class="form-label">Lugar de Preferencia (Si aplica)</label>
@@ -122,73 +137,63 @@
                                 </select>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn btn-reservar-custom"><i class="bi bi-check-circle-fill"></i> Confirmar Reserva</button>
+                        <button type="submit" class="btn btn-reservar-custom"><i
+                                class="bi bi-check-circle-fill"></i> Confirmar Reserva y Pagar</button>
                     </form>
                 </div>
             </div>
         </div>
-        
         <div class="text-center mt-5">
-            <a href="index.html" class="btn-back-custom"><i class="bi bi-arrow-left-circle-fill"></i> Volver a la Página Principal</a>
+            <a href="index.html" class="btn-back-custom"><i class="bi bi-arrow-left-circle-fill"></i> Volver a la
+                Página Principal</a>
         </div>
     </div>
 
-    <script src="./js/formulario_reservas.js"></script>
+    <!-- MODAL DE SELECCIÓN DE PAGO (Mantenido pero con estilos mejorados) -->
+    <div class="modal fade" id="paymentMethodModal" tabindex="-1" aria-labelledby="paymentMethodModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="./img/h.png" alt="[Logo de Hulul Discoteca]" class="modal-logo">
+                    <h5 class="modal-title" id="paymentMethodModalLabel">Finalizar Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0 border-end border-secondary pe-md-4">
+                            <h6 class="mb-3">Resumen de tu Reserva:</h6>
+                            <p class="mb-1 small"><strong>Evento:</strong> <span id="summaryEvento" class="text-light"></span></p>
+                            <p class="mb-1 small"><strong>Zona:</strong> <span id="summaryZona" class="text-light"></span></p>
+                            <p class="mb-3 small"><strong>Fecha:</strong> <span id="summaryFecha" class="text-light"></span></p>
+                            <hr class="my-3">
+                            <p class="text-center mb-1">Total a Pagar:</p>
+                            <p class="text-center"><strong id="modalTotalPrice" class="h2">Cargando...</strong></p>
+                        </div>
+                        <div class="col-md-6 ps-md-4">
+                             <h6 class="mb-3">Selecciona tu Método de Pago:</h6>
+                            <div id="paypal-button-container-modal" class="text-center">
+                                <!-- Los botones de PayPal se renderizarán aquí -->
+                            </div>
+                             <!-- Aquí podrías añadir otros métodos de pago como botones estilizados -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between px-4 pb-3">
+                    <button type="button" class="btn btn-sm btn-outline-light" data-bs-dismiss="modal"><i class="bi bi-arrow-left-short"></i> Modificar Datos</button>
+                    <!-- Botón de cancelar selección eliminado para simplificar, ya que el modal se cierra con X o ESC -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL SELECCIÓN PAGO -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         xintegrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="js/paypal.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AUz_JSeupSy8lcj7LWQB9HPZ6PMZsEPJpbDGxzPycCoB9PqJBxZEmGuJw0ivc98HvEgCFdua09wrxDvk&currency=USD&disable-funding=credit,card" data-sdk-integration-source="developer-studio"></script>
     
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const evento = localStorage.getItem("eventoSeleccionado");
-        const fecha = localStorage.getItem("fechaEvento");
-        const hora = localStorage.getItem("horaEvento");
-        const zona = localStorage.getItem("zonaSeleccionada");
-        const lugarEvento = localStorage.getItem("lugarEvento"); 
-        const ciudadEvento = localStorage.getItem("ciudadEvento");
-
-        const precios = {
-          "Palco VIP": "$1.800.000 COP", "Palco Plata": "$1.200.000 COP", "Palco Bronce": "$850.000 COP", //Cambiado de Basico a Bronce
-          "Mesa VIP": "$1.000.000 COP", "Mesa Plata": "$700.000 COP", "Mesa Bronce": "$450.000 COP" //Cambiado de Basica a Bronce
-        };
-
-        if (evento) document.getElementById("eventoSeleccionado").value = evento;
-        if (fecha) document.getElementById("fechaEvento").value = fecha;
-        if (hora) document.getElementById("horaEvento").value = hora;
-        if (zona) {
-          document.getElementById("zonaSeleccionada").value = zona;
-          document.getElementById("precioZona").value = precios[zona] || "Precio no disponible";
-        }
-        
-        // Lógica para el select 'lugar' (mejorada de tu script original en formulario_reservas.js)
-        const lugarSelect = document.getElementById("lugar");
-        if (lugarSelect) {
-            // Limpiar opciones previas excepto la primera (placeholder)
-            while (lugarSelect.options.length > 1) {
-                lugarSelect.remove(1);
-            }
-
-            if (lugarEvento) { // Si hay un lugar específico del evento
-                let found = false;
-                for(let i=0; i<lugarSelect.options.length; i++){
-                    if(lugarSelect.options[i].value === lugarEvento){
-                        lugarSelect.selectedIndex = i;
-                        found = true;
-                        break;
-                    }
-                }
-                if(!found){ // Si no existe como opción, lo añade y selecciona
-                    const optLugarEvento = document.createElement("option");
-                    optLugarEvento.value = lugarEvento;
-                    optLugarEvento.textContent = `${lugarEvento} (Lugar del Evento)`;
-                    lugarSelect.appendChild(optLugarEvento);
-                    optLugarEvento.selected = true;
-                }
-            }
-        }
-      });
-    </script>
 
 </body>
 </html>
